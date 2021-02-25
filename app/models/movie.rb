@@ -6,6 +6,7 @@ class Movie < ActiveRecord::Base
         if ratings_list == []
             return Movie.all
         else
-            return Movie.where(rating:ratings_list)
+            return Movie.where(rating: ratings_list)
         end
+    end
 end
