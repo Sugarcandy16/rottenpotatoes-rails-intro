@@ -3,7 +3,7 @@ class Movie < ActiveRecord::Base
         return Movie.pluck('distinct(rating)')
     end
     def self.with_ratings(ratings_list)
-        if ratings_list == nil
+        if ratings_list == []
             return Movie.all
         else
             return Movie.where(rating:ratings_list)
