@@ -10,7 +10,7 @@
         <%= link_to "Movie Title", movies_path(sort: "title"), id: "title_header" %>
       </th>
       <th>Rating</th>
-      <th class= "<%= "hilite bg_success" if @sort=="release_date" %>">
+      <th class= "<%= "hilite bg-warning" if @sort=="release_date" %> ">
         <%= link_to "Release Date", movies_path(sort: "release_date"), id: "release_date_header" %>
       </th>
       <th>More Info</th>
