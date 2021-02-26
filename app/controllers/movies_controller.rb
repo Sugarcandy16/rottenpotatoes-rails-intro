@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def index
     @sort = params[:sort] || session[:sort]
-    session[:sort]= @sort
+    session[:sort] = @sort
     @all_ratings = Movie.all_ratings
     @ratings_to_show = params[:ratings] || Hash.new
     
