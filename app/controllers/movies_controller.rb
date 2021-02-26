@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @sort = params[:sort] || session[:sort] || ""
+    @sort = params[:sort] || session[:sort] 
     session[:sort] = @sort
     
     @all_ratings = Movie.all_ratings
