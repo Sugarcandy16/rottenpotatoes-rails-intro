@@ -10,7 +10,8 @@ class MoviesController < ApplicationController
     @sort = params[:sort] || session[:sort]
     session[:sort] = @sort
     @all_ratings= Movie.all_ratings
-    @ratings_to_show = params[:ratings] || Hash.new
+    @ratings_to_show = params[:ratings] || session[:ratings] || Hash.new
+    session[:ratings]= @ratings_to_show
     
     @movies = Movie.with_ratings(@ratings_to_show.keys).order(@sort)
     
@@ -40,6 +41,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
+    session.clear
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
